@@ -1,6 +1,8 @@
+import { useProducts } from "@/hooks/useProducts";
 import { Text, View } from "react-native";
 
 export default function Index() {
+  const { data, error, isLoading } = useProducts();
   return (
     <View
       style={{
@@ -9,7 +11,10 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      {data &&
+        data.data?.products.map((product) => (
+          <Text key={product.id}>{product.title}</Text>
+        ))}
     </View>
   );
 }
