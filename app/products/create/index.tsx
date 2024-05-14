@@ -1,3 +1,4 @@
+import ButtonComponent from "@/components/ui/button";
 import { productCreateFormSchema } from "@/forms/products";
 import { createProduct } from "@/services/products";
 import { ProductCreateForm } from "@/types/products";
@@ -53,7 +54,8 @@ export default function ProductCreatePage() {
       {errors.title && <Text>{errors.title.message}</Text>}
 
       {/* ui */}
-      <Button title="Submit" onPress={onSubmit} />
+      <ButtonComponent title="Submit" onPress={onSubmit} />
+    
     </View>
   );
 }
