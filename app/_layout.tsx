@@ -6,6 +6,7 @@ export default function RootLayout() {
     <QueryProvider>
       <Stack>
         <Stack.Screen name="index" />
+        <Stack.Screen name="products" />
       </Stack>
     </QueryProvider>
   );
