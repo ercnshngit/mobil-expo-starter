@@ -1,12 +1,13 @@
-import { Text, View, TextInput, Button, Alert } from "react-native";
-import { useForm, Controller } from "react-hook-form";
 import { productCreateFormSchema } from "@/forms/products";
+import { createProduct } from "@/services/products";
+import { ProductCreateForm } from "@/types/products";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
-import { createProduct } from "@/services/products";
-import { CreateProduct, ProductCreateForm } from "@/types/products";
+import { Controller, useForm } from "react-hook-form";
+import { Alert, Button, Text, TextInput, View } from "react-native";
 
 export default function ProductCreatePage() {
+  //hooks useCreateProduct
   const {
     control,
     handleSubmit,
@@ -32,10 +33,12 @@ export default function ProductCreatePage() {
 
   return (
     <View className="px-4 py-2">
+      {/*  bu component */}
       <Controller
         control={control}
         name="title"
         render={({ field: { onChange, onBlur, value } }) => (
+          // bu ui
           <TextInput
             placeholder="First name"
             className="px-4 py-2 bg-white border-2 border-gray-300 rounded-md"
@@ -45,9 +48,11 @@ export default function ProductCreatePage() {
           />
         )}
       />
+      {/* <ErrorMessage errors={errors} name="title" /> */}
+      {/* shadcn cok guzel ayarlamis onu inceleyebiliriz */}
       {errors.title && <Text>{errors.title.message}</Text>}
 
-      {errors && <Text>{JSON.stringify(errors)}</Text>}
+      {/* ui */}
       <Button title="Submit" onPress={onSubmit} />
     </View>
   );
