@@ -1,6 +1,6 @@
 import Card from "@/components/ui/card";
 import Title from "@/components/ui/title";
-import { Product } from "@/types/product";
+import { Product } from "@/types/products";
 import React from "react";
 import { Text, View } from "react-native";
 

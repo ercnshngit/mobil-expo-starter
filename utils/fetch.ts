@@ -36,7 +36,7 @@ export const fetcher = async ({ url, method, ...rest }: FetcherProps) => {
   }
 };
 
-export async function get<T>(url: string, options?: FetcherProps) {
+export async function get<T>(url: string, options?: any) {
   return (await fetcher({
     url,
     ...options,
@@ -47,11 +47,12 @@ export async function get<T>(url: string, options?: FetcherProps) {
   };
 }
 
-export async function post<T>(url: string, options?: FetcherProps) {
+export async function post<T>(url: string, body: any, options?: any) {
   return (await fetcher({
     url,
-    ...options,
     method: "POST",
+    body: body,
+    ...options,
   })) as {
     data: T | null;
     error: string | null;
